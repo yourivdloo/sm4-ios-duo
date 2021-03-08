@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8178A98C25F651FE00637C57 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178A98B25F651FE00637C57 /* Case.swift */; };
 		A5923EDC25F234F80010955A /* General_practitionerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5923EDB25F234F80010955A /* General_practitionerApp.swift */; };
 		A5923EDE25F234F80010955A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5923EDD25F234F80010955A /* ContentView.swift */; };
 		A5923EE025F234FB0010955A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5923EDF25F234FB0010955A /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8178A98B25F651FE00637C57 /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
 		A5923ED825F234F80010955A /* General practitioner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "General practitioner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5923EDB25F234F80010955A /* General_practitionerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General_practitionerApp.swift; sourceTree = "<group>"; };
 		A5923EDD25F234F80010955A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				A5923EF625F2389B0010955A /* MeView.swift */,
 				A5923F0125F238D90010955A /* ResultView.swift */,
 				A5923EFD25F238C00010955A /* QuestionView.swift */,
+				8178A98B25F651FE00637C57 /* Case.swift */,
 				A5923EDF25F234FB0010955A /* Assets.xcassets */,
 				A5923EE425F234FB0010955A /* Persistence.swift */,
 				A5923EE925F234FC0010955A /* Info.plist */,
@@ -166,6 +169,7 @@
 				A5923EF725F2389B0010955A /* MeView.swift in Sources */,
 				A5923EE825F234FB0010955A /* General_practitioner.xcdatamodeld in Sources */,
 				A5923EFA25F238B20010955A /* GPMapView.swift in Sources */,
+				8178A98C25F651FE00637C57 /* Case.swift in Sources */,
 				A5923EDC25F234F80010955A /* General_practitionerApp.swift in Sources */,
 				A5923EF225F238840010955A /* BodyView.swift in Sources */,
 			);
