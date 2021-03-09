@@ -11,24 +11,27 @@ enum Answer {
     case yes, no, notSure
 }
 
-struct CaseData {
-    var cases = [Case]()
-    var questions = [String]()
-}
-
 struct QuestionView: View {
     let bodyPart : BodyPart
     
-    var caseData = CaseData()
+    let caseData : CaseData
+    
+    @Environment(\.presentationMode) var presentationMode
     
     @State private var yourAnswers = [Answer]()
+    
+    @State private var matchingCase = Case(name: "Placeholder", description: "Lorem ipsum dolor sir amet", advice: "No advice", answers: [Answer.no])
+    
+    @State private var showingResult = false
     
     @State private var questionNumber = 0
     
     func answer(answer: Answer){
         var bestMatch = -1
-        var bestCase : Case
-        if questionNumber == caseData.questions.count {
+        var bestCase = matchingCase
+        self.yourAnswers.append(answer)
+        
+        if questionNumber == caseData.questions.count - 1{
             
             for c in caseData.cases {
                 var score = 0
@@ -49,16 +52,22 @@ struct QuestionView: View {
                 }
             }
             
+            self.matchingCase = bestCase
+            self.showingResult.toggle()
+            
         } else {
-            self.yourAnswers.append(answer)
             self.questionNumber += 1
         }
+    }
+    
+    func returnToBody(){
+        presentationMode.wrappedValue.dismiss()
     }
     
     var body: some View {
         NavigationView{
             VStack{
-                Text("Question \(String(describing: bodyPart))")
+                Text(caseData.questions[questionNumber])
                     .font(.title)
                 HStack{
                     Button("YES") {
@@ -89,6 +98,8 @@ struct QuestionView: View {
                 }
                 .font(.title2)
                 .foregroundColor(.blue)
+            }.sheet(isPresented: $showingResult, onDismiss: returnToBody) {
+                ResultView(match: self.matchingCase)
             }
         }
     }

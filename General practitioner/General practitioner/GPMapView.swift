@@ -13,20 +13,21 @@ struct GPMapView: View {
     @State private var regionSpan = 0.05
     @State private var isEditing = false
     @State private var GPsNear = [
-        AnnotatedItem(name: "Times Square", coordinate: .init(latitude: 40.75773, longitude: -73.985708)),
-        AnnotatedItem(name: "Flatiron Building", coordinate: .init(latitude: 40.741112, longitude: -73.989723)),
-        AnnotatedItem(name: "Empire State Building", coordinate: .init(latitude: 40.748817, longitude: -73.985428))
-        
+                AnnotatedItem(name: "Times Square", phoneNumber: "067654321", url: URL(string: "https://www.timessquarenyc.org/")!, coordinate: .init(latitude: 40.75773, longitude: -73.985708)),
+        AnnotatedItem(name: "Flatiron Building", phoneNumber: "061234567", url: URL(string: "https://nl.wikipedia.org/wiki/Flatiron_Building")!, coordinate: .init(latitude: 40.741112, longitude: -73.989723)),
+                AnnotatedItem(name: "Empire State Building", phoneNumber: "060101010", url: URL(string: "https://www.esbnyc.com/nl")!, coordinate: .init(latitude: 40.748817, longitude: -73.985428))
     ]
     
     @State private var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.75773, longitude: -73.985708), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
     
     var body: some View {
         ZStack{
-            Map(coordinateRegion: $region, interactionModes: [], showsUserLocation: true, annotationItems: GPsNear) { item in
-                MapPin(coordinate: item.coordinate, tint: .red
-                )
-            }
+            Map(coordinateRegion: $region, interactionModes: [], showsUserLocation: true, annotationItems: GPsNear, annotationContent: { pin in
+                MapAnnotation(coordinate: pin.coordinate,
+                              content: {
+                                PinButtonView(pin: pin)
+                              })
+            })
             .edgesIgnoringSafeArea(.all)
             .onAppear(perform: askForPermission)
             
@@ -48,7 +49,7 @@ struct GPMapView: View {
                 ) {
                     Text("Radius")
                 }.padding()
-            
+                
                 Spacer()
             }
         }
@@ -88,20 +89,64 @@ struct GPMapView: View {
         search.start { (response, error) in
             if let response = response {
                 let mapItems = response.mapItems
-                
+                self.GPsNear.removeAll()
+
                 self.GPsNear = mapItems.map {
-                    AnnotatedItem(name: $0.name ?? "Unknown place",
+                    AnnotatedItem(name: $0.name ?? "Unknown place", phoneNumber: $0.phoneNumber ?? "No phone number", url: $0.url ?? URL(string: "https://www.google.com")!,
                                   coordinate: CLLocationCoordinate2D(latitude: $0.placemark.location?.coordinate.latitude ?? 0, longitude: $0.placemark.location?.coordinate.longitude ?? 0)
                     )
                 }
             }
         }
     }
+}
+
+
+
+struct AnnotatedItem: Identifiable {
+    let id = UUID()
+    var name: String
+    var phoneNumber: String
+    var url : URL
+    var coordinate: CLLocationCoordinate2D
+}
+
+struct PinButtonView: View {
+    @Environment(\.openURL) var openURL
+    @State private var showingDetailScreen = false
+    @State var pin: AnnotatedItem
     
-    struct AnnotatedItem: Identifiable {
-        let id = UUID()
-        var name: String
-        var coordinate: CLLocationCoordinate2D
+    var body: some View {
+        Button(action: {
+            showingDetailScreen.toggle()
+        }) {
+            Image(systemName: "mappin")
+                .padding()
+                .foregroundColor(.red)
+                .font(.title)
+        }
+        .actionSheet(isPresented: $showingDetailScreen){
+            ActionSheet(title: Text(pin.name), buttons: [
+                .default(Text("Call practitioner")) {
+                    callNumber()
+                },
+                .default(Text("Visit website")) { visitSite() },
+                .cancel()
+            ])
+        }
+    }
+    
+    func callNumber(){
+        if let phoneCallURL = URL(string: "tel://\(pin.phoneNumber)") {
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
+    
+    func visitSite(){
+        openURL(pin.url)
     }
 }
 

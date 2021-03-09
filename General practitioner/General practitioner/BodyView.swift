@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum BodyPart {
-    case foot, leg, knee, hip, belly, hand, arm, shoulder, head, chest
+    case foot, lowerLeg, knee, upperLeg, belly, hand, arm, shoulder, head, chest
 }
 
 struct BodyView : View {
@@ -40,8 +40,8 @@ struct BodyView : View {
                     Btn(bodyPart: BodyPart.knee, size: 75)
                         .offset(x: -93.0, y: 155)
                     
-                    Btn(bodyPart: BodyPart.hip, size: 75)
-                        .offset(x: -50.0, y: 40)
+                    Btn(bodyPart: BodyPart.upperLeg, size: 75)
+                        .offset(x: -50.0, y: 60)
                     
                     Btn(bodyPart: BodyPart.belly, size: 75)
                         .offset(x: -7.0, y: -30)
@@ -49,8 +49,8 @@ struct BodyView : View {
                     Btn(bodyPart: BodyPart.chest, size: 75)
                         .offset(x: -35.0, y: -115)
                     
-                    Btn(bodyPart: BodyPart.leg, size: 75)
-                        .offset(x: 30.0, y: 90)
+                    Btn(bodyPart: BodyPart.lowerLeg, size: 75)
+                        .offset(x: 35.0, y: 160)
                     
                     Btn(bodyPart: BodyPart.foot, size: 75)
                         .offset(x: 50.0, y: 270)
@@ -66,7 +66,7 @@ struct Btn : View{
     
     let size : CGFloat
     var body: some View {
-        NavigationLink(destination: QuestionView(bodyPart: bodyPart)){
+        NavigationLink(destination: QuestionView(bodyPart: bodyPart, caseData: CaseData(bodyPart: bodyPart))){
                     Text(String(describing: bodyPart))
                 }
         .frame(width: self.size, height: self.size, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

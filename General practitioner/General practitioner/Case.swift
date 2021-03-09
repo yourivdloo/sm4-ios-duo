@@ -11,5 +11,5 @@ struct Case {
     let name: String
     let description: String
     let advice: String
-    let answers = [Answer]()
+    let answers: [Answer]
 }

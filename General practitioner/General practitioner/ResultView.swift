@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct ResultView: View {
+    let match : Case
+    
     var body: some View {
-        Text("Result")
+        Text(match.name).font(.title)
+        Text(match.description)
+        Text(match.advice)
     }
 }
 
-struct ResultView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResultView()
-    }
-}
+//struct ResultView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ResultView()
+//    }
+//}
