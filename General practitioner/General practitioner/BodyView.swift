@@ -8,10 +8,16 @@
 import SwiftUI
 
 enum BodyPart {
-    case foot, lowerLeg, knee, upperLeg, belly, hand, arm, shoulder, head, chest
+    case foot, lowerLeg, knee, upperLeg, belly, hand, arm, shoulder, head, eye, nose, ear, neck, chest
 }
 
 struct BodyView : View {
+    
+    @State private var showingHeadOptions = false
+    
+    @State private var showingQuestion = false
+    
+    @State private var bodyPart = BodyPart.head
     
     var body: some View {
         NavigationView{
@@ -25,51 +31,86 @@ struct BodyView : View {
                         .padding([.horizontal], -80)
                 }
                 Group{
-                    Btn(bodyPart: BodyPart.hand, size: 75)
-                        .offset(x: 150, y: 0.0)
+                    Btn(bodyPart: BodyPart.hand)
+                        .offset(x: 145, y: 10.0)
                     
-                    Btn(bodyPart: BodyPart.arm, size: 75)
+                    Btn(bodyPart: BodyPart.arm)
                         .offset(x: 78, y: -72.0)
                     
-                    Btn(bodyPart: BodyPart.shoulder, size: 75)
-                        .offset(x: 30, y: -155.0)
+                    Btn(bodyPart: BodyPart.shoulder)
+                        .offset(x: 35, y: -137.5)
                     
-                    Btn(bodyPart: BodyPart.head, size: 150)
-                        .offset(x: -7.0, y: -265.0)
+                    Button("Head"){
+                        self.showingHeadOptions.toggle()
+                    }
+                    .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.blue)
+                    .opacity(0.5)
+                    .foregroundColor(.white)
+                    .clipShape(Circle())
+                    .offset(x: -7.0, y: -250.0)
                     
-                    Btn(bodyPart: BodyPart.knee, size: 75)
+                    Btn(bodyPart: BodyPart.knee)
                         .offset(x: -93.0, y: 155)
                     
-                    Btn(bodyPart: BodyPart.upperLeg, size: 75)
+                    Btn(bodyPart: BodyPart.upperLeg)
                         .offset(x: -50.0, y: 60)
                     
-                    Btn(bodyPart: BodyPart.belly, size: 75)
+                    Btn(bodyPart: BodyPart.belly)
                         .offset(x: -7.0, y: -30)
                     
-                    Btn(bodyPart: BodyPart.chest, size: 75)
+                    Btn(bodyPart: BodyPart.chest)
                         .offset(x: -35.0, y: -115)
                     
-                    Btn(bodyPart: BodyPart.lowerLeg, size: 75)
+                    Btn(bodyPart: BodyPart.lowerLeg)
                         .offset(x: 35.0, y: 160)
                     
-                    Btn(bodyPart: BodyPart.foot, size: 75)
+                    Btn(bodyPart: BodyPart.foot)
                         .offset(x: 50.0, y: 270)
+                }
+                NavigationLink(destination: QuestionView(bodyPart: self.bodyPart, caseData: CaseData(bodyPart: self.bodyPart)),
+                               isActive: $showingQuestion) {
+                    EmptyView()
                 }
             }
             .navigationBarTitle("Where do you ache?")
+            .actionSheet(isPresented: $showingHeadOptions){
+                ActionSheet(title: Text("Where on your head do you ache?"), buttons: [
+                    .default(Text("Head(general)")) {
+                        self.bodyPart = BodyPart.head
+                        self.showingQuestion.toggle()
+                    },
+                    .default(Text("Eye(s)")) {
+                        self.bodyPart = BodyPart.eye
+                        self.showingQuestion.toggle()
+                    },
+                    .default(Text("Nose")) {
+                        self.bodyPart = BodyPart.nose
+                        self.showingQuestion.toggle()
+                    },
+                    .default(Text("Ear(s)")) {
+                        self.bodyPart = BodyPart.ear
+                        self.showingQuestion.toggle()
+                    },
+                    .default(Text("Neck")) {
+                        self.bodyPart = BodyPart.neck
+                        self.showingQuestion.toggle()
+                    },
+                    .cancel()
+                ])
+            }
+            
         }
     }
 }
 
 struct Btn : View{
     let bodyPart : BodyPart
-    
-    let size : CGFloat
     var body: some View {
         NavigationLink(destination: QuestionView(bodyPart: bodyPart, caseData: CaseData(bodyPart: bodyPart))){
-                    Text(String(describing: bodyPart))
-                }
-        .frame(width: self.size, height: self.size, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            Text(String(describing: bodyPart))
+        }
+        .frame(width: 75, height: 75, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         .background(Color.blue)
         .opacity(0.5)
         .foregroundColor(.white)

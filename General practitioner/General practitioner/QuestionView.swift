@@ -38,7 +38,7 @@ struct QuestionView: View {
                 var i = 0
                 for a in c.answers {
                     if yourAnswers[i] == Answer.notSure {
-                        score = score + 1
+                        score += 1
                     }
                     if a == yourAnswers[i] {
                         score += 2
@@ -99,7 +99,7 @@ struct QuestionView: View {
                 .font(.title2)
                 .foregroundColor(.blue)
             }.sheet(isPresented: $showingResult, onDismiss: returnToBody) {
-                ResultView(match: self.matchingCase)
+                ResultView(match: self.matchingCase, bodyPart: self.bodyPart)
             }
         }
     }
