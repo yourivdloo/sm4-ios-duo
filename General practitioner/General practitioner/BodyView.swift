@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-enum BodyPart {
-    case foot, lowerLeg, knee, upperLeg, belly, hand, arm, shoulder, head, eye, nose, ear, neck, chest
+enum BodyPart : String {
+    case foot = "foot", lowerLeg = "lowerLeg", knee = "knee", upperLeg = "upperLeg", belly = "belly", hand = "hand", arm = "arm", shoulder = "shoulder", head = "head", eye = "eye", nose = "nose", ear = "ear", neck = "neck", chest = "chest"
 }
 
 struct BodyView : View {

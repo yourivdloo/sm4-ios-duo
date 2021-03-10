@@ -9,7 +9,15 @@ import SwiftUI
 
 struct ResultView: View {
     let match : Case
+    let savedMatch : SavedCase?
+    let timeSaved : Date?
     let bodyPart : BodyPart
+    let isSaved : Bool
+    
+    @State private var showingDeleteAlert = false
+    
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         GeometryReader { geo in
@@ -22,21 +30,50 @@ struct ResultView: View {
                     
                     Text("We think you might have \(match.name)")
                     Text(match.advice)
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        Text("Add to My history")
+                    
+                    Button(action: {isSaved ? self.showingDeleteAlert.toggle() : saveCase()}, label: {
+                        Text(isSaved ? "Delete from My history" : "Add to My history")
                         Image(systemName: "clock.arrow.circlepath")
                     })
                     .foregroundColor(.white)
-                    
-                    
                     .padding()
-                    .background(Color.blue)
+                    .background(isSaved ? Color.red : Color.blue)
                     .cornerRadius(15)
+                    
+                    Text(isSaved ? "Saved on: \(dateToString(date: self.timeSaved ?? Date()))" : "This case is currently not saved").foregroundColor(.secondary)
+                    
                     Spacer()
                 }
+                .alert(isPresented: $showingDeleteAlert) {
+                            Alert(title: Text("Delete case"), message: Text("Are you sure?"), primaryButton: .destructive(Text("Delete")) {
+                                    self.deleteCase()
+                                }, secondaryButton: .cancel()
+                            )
+                        }
+
                 .navigationBarTitle(match.name)
             }
         }
+    }
+    
+    func deleteCase(){
+        if(savedMatch != nil){
+            moc.delete(savedMatch!)
+            try? self.moc.save()
+            self.presentationMode.wrappedValue.dismiss()
+        }
+    }
+    
+    func saveCase(){
+        let savedCase = SavedCase(context: self.moc)
+        savedCase.name = self.match.name
+        savedCase.advice = self.match.advice
+        savedCase.bodyPart = String(describing: self.bodyPart)
+        savedCase.timeSaved = Date()
+        
+        try? self.moc.save()
+        
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
 

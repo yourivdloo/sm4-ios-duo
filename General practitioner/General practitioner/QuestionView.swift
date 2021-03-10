@@ -16,6 +16,7 @@ struct QuestionView: View {
     
     let caseData : CaseData
     
+    @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
     
     @State private var yourAnswers = [Answer]()
@@ -99,7 +100,7 @@ struct QuestionView: View {
                 .font(.title2)
                 .foregroundColor(.blue)
             }.sheet(isPresented: $showingResult, onDismiss: returnToBody) {
-                ResultView(match: self.matchingCase, bodyPart: self.bodyPart)
+                ResultView(match: self.matchingCase, savedMatch: nil, timeSaved: nil, bodyPart: self.bodyPart, isSaved: false)
             }
         }
     }
