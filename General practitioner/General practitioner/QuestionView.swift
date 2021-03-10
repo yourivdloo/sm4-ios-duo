@@ -66,41 +66,48 @@ struct QuestionView: View {
     }
     
     var body: some View {
-        NavigationView{
-            VStack{
-                Text(caseData.questions[questionNumber])
-                    .font(.title)
-                HStack{
-                    Button("YES") {
-                        self.answer(answer: Answer.yes)
+        GeometryReader{ geo in
+            NavigationView{
+                VStack{
+                    Text(caseData.questions[questionNumber])
+                        .font(.title)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.center)
+                        .offset(x: 0.0, y: geo.size.height * -0.2)
+                    HStack{
+                        Button("YES") {
+                            self.answer(answer: Answer.yes)
+                        }
+                        .font(.title2)
+                        .frame(width: geo.size.width * 0.45, height: geo.size.height * 0.45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.green)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.green, lineWidth: 1)
+                        )
+                        .offset(x: 0.0, y: geo.size.height * -0.1)
+                        Button("NO") {
+                            self.answer(answer: Answer.no)
+                        }
+                        .font(.title2)
+                        .frame(width: geo.size.width * 0.45, height: geo.size.height * 0.45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.red)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.red, lineWidth: 1)
+                        )
+                        .offset(x: 0.0, y: geo.size.height * -0.1)
                     }
-                    .font(.title2)
-                    .frame(width: 150, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.green)
-                    .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.green, lineWidth: 1)
-                    )
-                    Button("NO") {
-                        self.answer(answer: Answer.no)
+                    Button("Not sure") {
+                        self.answer(answer: Answer.notSure)
                     }
-                    .font(.title2)
-                    .frame(width: 150, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.red)
                     .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.red, lineWidth: 1)
-                    )
+                    .font(.title2)
+                    .foregroundColor(.blue)
+                    .offset(x: 0.0, y: geo.size.height * -0.1)
+                }.sheet(isPresented: $showingResult, onDismiss: returnToBody) {
+                    ResultView(match: self.matchingCase, savedMatch: nil, timeSaved: nil, bodyPart: self.bodyPart, isSaved: false)
                 }
-                Button("Not sure") {
-                    self.answer(answer: Answer.notSure)
-                }
-                .font(.title2)
-                .foregroundColor(.blue)
-            }.sheet(isPresented: $showingResult, onDismiss: returnToBody) {
-                ResultView(match: self.matchingCase, savedMatch: nil, timeSaved: nil, bodyPart: self.bodyPart, isSaved: false)
             }
         }
     }

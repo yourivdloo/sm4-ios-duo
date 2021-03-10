@@ -28,7 +28,7 @@ struct ResultView: View {
                         .scaledToFit()
                         .frame(width: geo.size.width)
                     
-                    Text("We think you might have \(match.name)")
+                    Text("We think you might have \(match.name.capitalized.lowercased())")
                     Text(match.advice)
                     
                     Button(action: {isSaved ? self.showingDeleteAlert.toggle() : saveCase()}, label: {
@@ -50,7 +50,6 @@ struct ResultView: View {
                                 }, secondaryButton: .cancel()
                             )
                         }
-
                 .navigationBarTitle(match.name)
             }
         }

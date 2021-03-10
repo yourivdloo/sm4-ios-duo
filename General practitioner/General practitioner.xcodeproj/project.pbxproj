@@ -15,7 +15,7 @@
 		A5923EE525F234FB0010955A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5923EE425F234FB0010955A /* Persistence.swift */; };
 		A5923EE825F234FB0010955A /* General_practitioner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5923EE625F234FB0010955A /* General_practitioner.xcdatamodeld */; };
 		A5923EF225F238840010955A /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5923EF125F238840010955A /* BodyView.swift */; };
-		A5923EF725F2389B0010955A /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5923EF625F2389B0010955A /* MeView.swift */; };
+		A5923EF725F2389B0010955A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5923EF625F2389B0010955A /* HistoryView.swift */; };
 		A5923EFA25F238B20010955A /* GPMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5923EF925F238B20010955A /* GPMapView.swift */; };
 		A5923EFE25F238C00010955A /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5923EFD25F238C00010955A /* QuestionView.swift */; };
 		A5923F0225F238D90010955A /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5923F0125F238D90010955A /* ResultView.swift */; };
@@ -33,7 +33,7 @@
 		A5923EE725F234FB0010955A /* General_practitioner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = General_practitioner.xcdatamodel; sourceTree = "<group>"; };
 		A5923EE925F234FC0010955A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5923EF125F238840010955A /* BodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
-		A5923EF625F2389B0010955A /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
+		A5923EF625F2389B0010955A /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		A5923EF925F238B20010955A /* GPMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPMapView.swift; sourceTree = "<group>"; };
 		A5923EFD25F238C00010955A /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		A5923F0125F238D90010955A /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 				A5923EF125F238840010955A /* BodyView.swift */,
 				A5923EDD25F234F80010955A /* ContentView.swift */,
 				A5923EF925F238B20010955A /* GPMapView.swift */,
-				A5923EF625F2389B0010955A /* MeView.swift */,
+				A5923EF625F2389B0010955A /* HistoryView.swift */,
 				A5923F0125F238D90010955A /* ResultView.swift */,
 				A5923EFD25F238C00010955A /* QuestionView.swift */,
 				8178A98B25F651FE00637C57 /* Case.swift */,
@@ -169,7 +169,7 @@
 				A5923EE525F234FB0010955A /* Persistence.swift in Sources */,
 				A5923F0225F238D90010955A /* ResultView.swift in Sources */,
 				A5923EDE25F234F80010955A /* ContentView.swift in Sources */,
-				A5923EF725F2389B0010955A /* MeView.swift in Sources */,
+				A5923EF725F2389B0010955A /* HistoryView.swift in Sources */,
 				A5923EE825F234FB0010955A /* General_practitioner.xcdatamodeld in Sources */,
 				A5EE130C25F7679800BD864B /* CaseData.swift in Sources */,
 				A5923EFA25F238B20010955A /* GPMapView.swift in Sources */,
@@ -315,7 +315,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "pim.duo.General-practitioner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -336,7 +336,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "pim.duo.General-practitioner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

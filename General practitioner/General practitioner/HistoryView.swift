@@ -1,5 +1,5 @@
 //
-//  BodyView.swift
+//  HistoryView.swift
 //  General practitioner
 //
 //  Created by Pim van Hooren on 05/03/2021.
@@ -14,7 +14,7 @@ func dateToString(date : Date) -> String{
     return formatter.string(from: date)
 }
 
-struct MeView: View {
+struct HistoryView: View {
     @Environment(\.managedObjectContext) var moc
     
     @FetchRequest(entity: SavedCase.entity(), sortDescriptors: [
@@ -68,8 +68,8 @@ struct MeView: View {
 //    }
 }
     
-    struct MeView_Previews: PreviewProvider {
+    struct HistoryView_Previews: PreviewProvider {
         static var previews: some View {
-            MeView()
+            HistoryView()
         }
     }

@@ -22,7 +22,7 @@ struct ContentView: View {
                     Image(systemName: "map")
                     Text("GPs near you")
                 }
-            MeView()
+            HistoryView()
                 .tabItem {
                     Image(systemName: "clock.arrow.circlepath")
                     Text("History")
