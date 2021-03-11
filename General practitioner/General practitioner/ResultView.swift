@@ -32,8 +32,10 @@ struct ResultView: View {
                     Text(match.advice)
                     
                     Button(action: {isSaved ? self.showingDeleteAlert.toggle() : saveCase()}, label: {
+                        Group{
                         Text(isSaved ? "Delete from My history" : "Add to My history")
                         Image(systemName: "clock.arrow.circlepath")
+                        }
                     })
                     .foregroundColor(.white)
                     .padding()

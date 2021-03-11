@@ -35,13 +35,14 @@ struct BodyView : View {
                             .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.9)
                     }
                     Group{
-                        Button("Head"){
-                            self.showingHeadOptions.toggle()
+                        Button(action: {self.showingHeadOptions.toggle()}){
+                            Text("Head")
+                                .frame(width: geo.size.height * 0.21, height: geo.size.height * 0.21)
+                                .foregroundColor(.white)
+                                .opacity(2)
                         }
-                        .frame(width: geo.size.height * 0.21, height: geo.size.height * 0.21)
                         .background(Color.blue)
                         .opacity(0.5)
-                        .foregroundColor(.white)
                         .clipShape(Circle())
                         .offset(x: geo.size.width * -0.0175, y: geo.size.height * -0.335)
                         
@@ -106,7 +107,7 @@ struct BodyView : View {
                 }
                 
             }
-            .onAppear(perform: { self.size = geo.size.height * 0.14})
+            .onAppear(perform: { self.size = geo.size.height * 0.12})
         }
     }
     
@@ -117,14 +118,16 @@ struct Btn : View{
     let size: CGFloat
     
     var body: some View {
-        NavigationLink(destination: QuestionView(bodyPart: bodyPart, caseData: CaseData(bodyPart: bodyPart))){
-            Text(String(describing: bodyPart.rawValue))
-        }
-        
-        .frame(width: size, height: size, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        Button(action: {
+        }, label: {
+            NavigationLink(destination: QuestionView(bodyPart: bodyPart, caseData: CaseData(bodyPart: bodyPart))){
+                Text(String(describing: bodyPart.rawValue))
+                    .foregroundColor(.white)
+                    .frame(width: size, height: size, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            }
+        })
         .background(Color.blue)
         .opacity(0.5)
-        .foregroundColor(.white)
         .clipShape(Circle())
     }
 }

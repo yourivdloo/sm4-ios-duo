@@ -13,44 +13,54 @@ struct GPMapView: View {
     @State private var regionSpan = 0.05
     @State private var isEditing = false
     @State private var GPsNear = [
-                AnnotatedItem(name: "Times Square", phoneNumber: "067654321", url: URL(string: "https://www.timessquarenyc.org/")!, coordinate: .init(latitude: 40.75773, longitude: -73.985708)),
+        AnnotatedItem(name: "Times Square", phoneNumber: "067654321", url: URL(string: "https://www.timessquarenyc.org/")!, coordinate: .init(latitude: 40.75773, longitude: -73.985708)),
         AnnotatedItem(name: "Flatiron Building", phoneNumber: "061234567", url: URL(string: "https://nl.wikipedia.org/wiki/Flatiron_Building")!, coordinate: .init(latitude: 40.741112, longitude: -73.989723)),
-                AnnotatedItem(name: "Empire State Building", phoneNumber: "060101010", url: URL(string: "https://www.esbnyc.com/nl")!, coordinate: .init(latitude: 40.748817, longitude: -73.985428))
+        AnnotatedItem(name: "Empire State Building", phoneNumber: "060101010", url: URL(string: "https://www.esbnyc.com/nl")!, coordinate: .init(latitude: 40.748817, longitude: -73.985428))
     ]
     
     @State private var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.75773, longitude: -73.985708), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
     
     var body: some View {
-        ZStack{
-            Map(coordinateRegion: $region, interactionModes: [], showsUserLocation: true, annotationItems: GPsNear, annotationContent: { pin in
-                MapAnnotation(coordinate: pin.coordinate,
-                              content: {
-                                PinButtonView(pin: pin)
-                              })
-            })
-            .edgesIgnoringSafeArea(.all)
-            .onAppear(perform: askForPermission)
-            
-            VStack{
-                Slider(
-                    value: Binding(get: {
-                        self.regionSpan * 100
-                    }, set: { (newVal) in
-                        self.regionSpan = (newVal / 100)
-                        self.sliderChanged()
-                    }),
-                    in: 1...20,
-                    step: 1,
-                    onEditingChanged: { editing in
-                        isEditing = editing
-                    },
-                    minimumValueLabel: Text("1"),
-                    maximumValueLabel: Text("20")
-                ) {
-                    Text("Radius")
-                }.padding()
+        GeometryReader{ geo in
+            ZStack{
+                Map(coordinateRegion: $region, interactionModes: [], showsUserLocation: true, annotationItems: GPsNear, annotationContent: { pin in
+                    MapAnnotation(coordinate: pin.coordinate,
+                                  content: {
+                                    PinButtonView(pin: pin)
+                                  })
+                })
+                .edgesIgnoringSafeArea(.all)
+                .onAppear(perform: askForPermission)
                 
-                Spacer()
+//                Circle()
+//                    .fill(Color.blue)
+//                    .frame(width: geo.size.width, height: geo.size.height)
+//                    .opacity(0.15)
+//                .onTapGesture {
+//                    print("Circle tapped!")
+//                }
+//                .allowsHitTesting(false)
+                
+                VStack{
+                    Slider(
+                        value: Binding(get: {
+                            self.regionSpan * 100
+                        }, set: { (newVal) in
+                            self.regionSpan = (newVal / 100)
+                            self.sliderChanged()
+                        }),
+                        in: 0.9...45.045,
+                        step: 1,
+                        onEditingChanged: { editing in
+                            isEditing = editing
+                        },
+                        minimumValueLabel: Text("1"),
+                        maximumValueLabel: Text("25 km")
+                    ) {
+                        Text("Radius")
+                    }.padding()
+                    Spacer()
+                }
             }
         }
     }
@@ -90,7 +100,7 @@ struct GPMapView: View {
             if let response = response {
                 let mapItems = response.mapItems
                 self.GPsNear.removeAll()
-
+                
                 self.GPsNear = mapItems.map {
                     AnnotatedItem(name: $0.name ?? "Unknown place", phoneNumber: $0.phoneNumber ?? "No phone number", url: $0.url ?? URL(string: "https://www.google.com")!,
                                   coordinate: CLLocationCoordinate2D(latitude: $0.placemark.location?.coordinate.latitude ?? 0, longitude: $0.placemark.location?.coordinate.longitude ?? 0)

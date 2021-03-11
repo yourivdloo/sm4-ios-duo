@@ -75,22 +75,24 @@ struct QuestionView: View {
                         .multilineTextAlignment(.center)
                         .offset(x: 0.0, y: geo.size.height * -0.2)
                     HStack{
-                        Button("YES") {
-                            self.answer(answer: Answer.yes)
+                        Button(action: {self.answer(answer: Answer.yes)}) {
+                            Text("YES")
+                                .font(.title2)
+                                .frame(width: geo.size.width * 0.45, height: geo.size.height * 0.45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                
                         }
-                        .font(.title2)
-                        .frame(width: geo.size.width * 0.45, height: geo.size.height * 0.45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .foregroundColor(.green)
                         .overlay(
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.green, lineWidth: 1)
                         )
                         .offset(x: 0.0, y: geo.size.height * -0.1)
-                        Button("NO") {
-                            self.answer(answer: Answer.no)
+                        
+                        Button(action: {self.answer(answer: Answer.no)}) {
+                            Text("NO")
+                                .font(.title2)
+                                .frame(width: geo.size.width * 0.45, height: geo.size.height * 0.45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         }
-                        .font(.title2)
-                        .frame(width: geo.size.width * 0.45, height: geo.size.height * 0.45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .foregroundColor(.red)
                         .overlay(
                             RoundedRectangle(cornerRadius: 20)
