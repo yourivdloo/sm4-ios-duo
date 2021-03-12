@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum BodyPart : String {
+enum BodyPart : String, Codable {
     case foot = "foot", lowerLeg = "lower leg", knee = "knee", upperLeg = "upper leg", belly = "belly", hand = "hand", arm = "arm", shoulder = "shoulder", head = "head", eye = "eye", nose = "nose", ear = "ear", neck = "neck", chest = "chest"
 }
 
@@ -41,8 +41,7 @@ struct BodyView : View {
                                 .foregroundColor(.white)
                                 .opacity(2)
                         }
-                        .background(Color.blue)
-                        .opacity(0.5)
+                        .background(Color.blue.opacity(0.5))
                         .clipShape(Circle())
                         .offset(x: geo.size.width * -0.0175, y: geo.size.height * -0.335)
                         
@@ -126,8 +125,7 @@ struct Btn : View{
                     .frame(width: size, height: size, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             }
         })
-        .background(Color.blue)
-        .opacity(0.5)
+        .background(Color.blue.opacity(0.5))
         .clipShape(Circle())
     }
 }

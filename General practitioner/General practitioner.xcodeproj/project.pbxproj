@@ -19,6 +19,9 @@
 		A5923EFA25F238B20010955A /* GPMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5923EF925F238B20010955A /* GPMapView.swift */; };
 		A5923EFE25F238C00010955A /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5923EFD25F238C00010955A /* QuestionView.swift */; };
 		A5923F0225F238D90010955A /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5923F0125F238D90010955A /* ResultView.swift */; };
+		A5CC43C925FB6DDC00B28676 /* cases.txt in Resources */ = {isa = PBXBuildFile; fileRef = A5CC43C825FB6DDC00B28676 /* cases.txt */; };
+		A5CC43CC25FB746B00B28676 /* questions.txt in Resources */ = {isa = PBXBuildFile; fileRef = A5CC43CB25FB746B00B28676 /* questions.txt */; };
+		A5CC43CF25FB74A000B28676 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC43CE25FB74A000B28676 /* Question.swift */; };
 		A5EE130C25F7679800BD864B /* CaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EE130B25F7679800BD864B /* CaseData.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,9 @@
 		A5923EF925F238B20010955A /* GPMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPMapView.swift; sourceTree = "<group>"; };
 		A5923EFD25F238C00010955A /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		A5923F0125F238D90010955A /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		A5CC43C825FB6DDC00B28676 /* cases.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = cases.txt; sourceTree = "<group>"; };
+		A5CC43CB25FB746B00B28676 /* questions.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = questions.txt; sourceTree = "<group>"; };
+		A5CC43CE25FB74A000B28676 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		A5EE130B25F7679800BD864B /* CaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,12 +84,15 @@
 				A5923F0125F238D90010955A /* ResultView.swift */,
 				A5923EFD25F238C00010955A /* QuestionView.swift */,
 				8178A98B25F651FE00637C57 /* Case.swift */,
+				A5CC43CE25FB74A000B28676 /* Question.swift */,
 				A5EE130B25F7679800BD864B /* CaseData.swift */,
 				A5923EDF25F234FB0010955A /* Assets.xcassets */,
 				A5923EE425F234FB0010955A /* Persistence.swift */,
 				A5923EE925F234FC0010955A /* Info.plist */,
 				A5923EE625F234FB0010955A /* General_practitioner.xcdatamodeld */,
 				A5923EE125F234FB0010955A /* Preview Content */,
+				A5CC43C825FB6DDC00B28676 /* cases.txt */,
+				A5CC43CB25FB746B00B28676 /* questions.txt */,
 			);
 			path = "General practitioner";
 			sourceTree = "<group>";
@@ -154,6 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5923EE325F234FB0010955A /* Preview Assets.xcassets in Resources */,
+				A5CC43C925FB6DDC00B28676 /* cases.txt in Resources */,
+				A5CC43CC25FB746B00B28676 /* questions.txt in Resources */,
 				A5923EE025F234FB0010955A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +185,7 @@
 				A5EE130C25F7679800BD864B /* CaseData.swift in Sources */,
 				A5923EFA25F238B20010955A /* GPMapView.swift in Sources */,
 				8178A98C25F651FE00637C57 /* Case.swift in Sources */,
+				A5CC43CF25FB74A000B28676 /* Question.swift in Sources */,
 				A5923EDC25F234F80010955A /* General_practitionerApp.swift in Sources */,
 				A5923EF225F238840010955A /* BodyView.swift in Sources */,
 			);

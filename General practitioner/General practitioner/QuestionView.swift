@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-enum Answer {
-    case yes, no, notSure
+enum Answer : Int, Codable {
+    case yes = 1, no = 0, notSure = 2
 }
 
 struct QuestionView: View {
@@ -21,7 +21,7 @@ struct QuestionView: View {
     
     @State private var yourAnswers = [Answer]()
     
-    @State private var matchingCase = Case(name: "Placeholder", description: "Lorem ipsum dolor sir amet", advice: "No advice", answers: [Answer.no])
+    @State private var matchingCase = Case(name: "Placeholder", description: "Lorem ipsum dolor sir amet", advice: "No advice", bodyPart: BodyPart.head, answers: [Answer.no])
     
     @State private var showingResult = false
     
@@ -69,7 +69,7 @@ struct QuestionView: View {
         GeometryReader{ geo in
             NavigationView{
                 VStack{
-                    Text(caseData.questions[questionNumber])
+                    Text(caseData.questions[questionNumber].question)
                         .font(.title)
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.center)
@@ -108,7 +108,7 @@ struct QuestionView: View {
                     .foregroundColor(.blue)
                     .offset(x: 0.0, y: geo.size.height * -0.1)
                 }.sheet(isPresented: $showingResult, onDismiss: returnToBody) {
-                    ResultView(match: self.matchingCase, savedMatch: nil, timeSaved: nil, bodyPart: self.bodyPart, isSaved: false)
+                    ResultView(match: self.matchingCase, savedMatch: nil, timeSaved: nil, isSaved: false)
                 }
             }
         }

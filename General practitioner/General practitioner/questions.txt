@@ -1,0 +1,23 @@
+{ "question": "Does your knee feel broken?", "bodyPart": "knee" }@
+{ "question": "Can you still move your knee without too much pain?", "bodyPart": "knee" }@
+{ "question": "Can you still feel your lower leg?", "bodyPart": "lowerLeg" }@
+{ "question": "Can you still feel your upper leg?", "bodyPart": "upperLeg" }@
+{ "question": "Can you still feel your foot?", "bodyPart": "foot" }@
+{ "question": "Can you still move your foot without too much pain?", "bodyPart": "foot" }@
+{ "question": "Do you experience stomach cramps?", "bodyPart": "belly" }@
+{ "question": "Do you see a wound?", "bodyPart": "belly" }@
+{ "question": "Do you have a high temperature?", "bodyPart": "belly" }@
+{ "question": "Do you feel pressure on your chest?", "bodyPart": "chest" }@
+{ "question": "Do you have a high temperature?", "bodyPart": "chest" }@
+{ "question": "Can you still feel your arm?", "bodyPart": "arm" }@
+{ "question": "Can you still move your arm without too much pain?", "bodyPart": "arm" }@
+{ "question": "Can you still feel your hand?", "bodyPart": "hand" }@
+{ "question": "Can you still move your hand without too much pain?", "bodyPart": "hand" }@
+{ "question": "Can you still move your shoulder without too much pain?", "bodyPart": "shoulder" }@
+{ "question": "Do you have a high temperature?", "bodyPart": "head" }@
+{ "question": "Can you still move your nose without too much pain?", "bodyPart": "nose" }@
+{ "question": "Do your eyes feel warm?", "bodyPart": "eye" }@
+{ "question": "Do you hear a constant high frequency?", "bodyPart": "ear" }@
+{ "question": "Can you still move your neck without too much pain?", "bodyPart": "neck" }
+
+        

@@ -11,7 +11,6 @@ struct ResultView: View {
     let match : Case
     let savedMatch : SavedCase?
     let timeSaved : Date?
-    let bodyPart : BodyPart
     let isSaved : Bool
     
     @State private var showingDeleteAlert = false
@@ -23,7 +22,7 @@ struct ResultView: View {
         GeometryReader { geo in
             NavigationView{
                 VStack{
-                    Image(String(describing: bodyPart))
+                    Image(String(describing: match.bodyPart))
                         .resizable()
                         .scaledToFit()
                         .frame(width: geo.size.width)
@@ -69,7 +68,7 @@ struct ResultView: View {
         let savedCase = SavedCase(context: self.moc)
         savedCase.name = self.match.name
         savedCase.advice = self.match.advice
-        savedCase.bodyPart = String(describing: self.bodyPart)
+        savedCase.bodyPart = String(describing: self.match.bodyPart)
         savedCase.timeSaved = Date()
         
         try? self.moc.save()
