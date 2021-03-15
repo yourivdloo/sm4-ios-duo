@@ -12,11 +12,7 @@ struct GPMapView: View {
     var locationManager = CLLocationManager()
     @State private var regionSpan = 0.05
     @State private var isEditing = false
-    @State private var GPsNear = [
-        AnnotatedItem(name: "Times Square", phoneNumber: "067654321", url: URL(string: "https://www.timessquarenyc.org/")!, coordinate: .init(latitude: 40.75773, longitude: -73.985708)),
-        AnnotatedItem(name: "Flatiron Building", phoneNumber: "061234567", url: URL(string: "https://nl.wikipedia.org/wiki/Flatiron_Building")!, coordinate: .init(latitude: 40.741112, longitude: -73.989723)),
-        AnnotatedItem(name: "Empire State Building", phoneNumber: "060101010", url: URL(string: "https://www.esbnyc.com/nl")!, coordinate: .init(latitude: 40.748817, longitude: -73.985428))
-    ]
+    @State private var GPsNear = [AnnotatedItem]()
     
     @State private var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.75773, longitude: -73.985708), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
     
@@ -32,14 +28,14 @@ struct GPMapView: View {
                 .edgesIgnoringSafeArea(.all)
                 .onAppear(perform: askForPermission)
                 
-//                Circle()
-//                    .fill(Color.blue)
-//                    .frame(width: geo.size.width, height: geo.size.height)
-//                    .opacity(0.15)
-//                .onTapGesture {
-//                    print("Circle tapped!")
-//                }
-//                .allowsHitTesting(false)
+                //                Circle()
+                //                    .fill(Color.blue)
+                //                    .frame(width: geo.size.width, height: geo.size.height)
+                //                    .opacity(0.15)
+                //                .onTapGesture {
+                //                    print("Circle tapped!")
+                //                }
+                //                .allowsHitTesting(false)
                 
                 VStack{
                     Slider(
@@ -111,8 +107,6 @@ struct GPMapView: View {
     }
 }
 
-
-
 struct AnnotatedItem: Identifiable {
     let id = UUID()
     var name: String
@@ -143,6 +137,7 @@ struct PinButtonView: View {
                 .default(Text("Visit website")) { visitSite() },
                 .cancel()
             ])
+            
         }
     }
     

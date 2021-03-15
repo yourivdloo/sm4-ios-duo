@@ -1,17 +1,17 @@
-{ "name": "A broken knee", "description": "You broke your knee", "advice": "Go visit your GP", "bodyPart": "knee", "answers": [1] }@
+{ "name": "A broken knee", "description": "You broke your knee", "advice": "go visit your GP", "bodyPart": "knee", "answers": [1] }@
 { "name": "Perfectly fine", "description": "Nothing on the hand", "advice": "No need to visit your GP", "bodyPart": "knee", "answers": [0] }@
-{ "name": "A broken lower leg", "description": "You broke your lower leg", "advice": "Go visit your GP", "bodyPart": "lowerLeg", "answers": [1] }@
-{ "name": "A broken upper leg", "description": "You broke your upper leg", "advice": "Go visit your GP", "bodyPart": "upperLeg", "answers": [1] }@
-{ "name": "A broken foot", "description": "You broke your foot", "advice": "Go visit your GP", "bodyPart": "foot", "answers": [1] }@
-{ "name": "Stomach flu", "description": "You have stomach flu", "advice": "Stay at home and run its course first", "bodyPart": "belly", "answers": [1, 0, 1] }@
-{ "name": "Constipation", "description": "You are suffering of constipation", "advice": "You can sit it out, or you can get a laxative from your local pharmacy", "bodyPart": "belly", "answers": [1, 0, 0] }@
-{ "name": "A heart attack", "description": "You may or may not have a heart attack, go find help", "advice": "It might be smart to go find direct help, rather than a GP", "bodyPart": "chest", "answers": [1] }@
-{ "name": "A broken arm", "description": "You broke your arm", "advice": "Go visit your GP", "bodyPart": "arm", "answers": [1] }@
-{ "name": "A broken hand", "description": "You broke your hand", "advice": "Go visit your GP", "bodyPart": "hand", "answers": [1] }@
-{ "name": "A broken shoulder", "description": "You broke your shoulder", "advice": "Go visit your GP", "bodyPart": "shoulder", "answers": [1] }@
-{ "name": "A broken nose", "description": "You broke your nose", "advice": "Go visit your GP", "bodyPart": "nose", "answers": [1] }@
-{ "name": "A broken neck", "description": "You broke your neck", "advice": "Go visit your GP", "bodyPart": "neck", "answers": [1] }@
-{ "name": "Corona virus", "description": "You may have been affected with COVID-19", "advice": "Get a test and isolate", "bodyPart": "head", "answers": [1] }@
-{ "name": "Hay fever", "description": "There are pollens in the air and you might have hay fever", "advice": "Go visit your GP", "bodyPart": "eye", "answers": [1] }@
-{ "name": "An eardrum inflammation", "description": "You may have been affected with too much noise", advice: "Go visit your GP for examination", "bodyPart": "ear", "answers": [1] }
+{ "name": "A broken lower leg", "description": "You broke your lower leg", "advice": "go visit your GP", "bodyPart": "lower leg", "answers": [1] }@
+{ "name": "A broken upper leg", "description": "You broke your upper leg", "advice": "go visit your GP", "bodyPart": "upper leg", "answers": [1] }@
+{ "name": "A broken foot", "description": "You broke your foot", "advice": "go visit your GP", "bodyPart": "foot", "answers": [1] }@
+{ "name": "Stomach flu", "description": "You have stomach flu", "advice": "stay at home and run its course first", "bodyPart": "belly", "answers": [1, 0, 1] }@
+{ "name": "Constipation", "description": "You are suffering of constipation", "advice": "sit it out, or you can get a laxative from your local pharmacy", "bodyPart": "belly", "answers": [1, 0, 0] }@
+{ "name": "A heart attack", "description": "go find help", "advice": "go find direct help, rather than a GP", "bodyPart": "chest", "answers": [1] }@
+{ "name": "A broken arm", "description": "You broke your arm", "advice": "go visit your GP", "bodyPart": "arm", "answers": [1] }@
+{ "name": "A broken hand", "description": "You broke your hand", "advice": "go visit your GP", "bodyPart": "hand", "answers": [1] }@
+{ "name": "A broken shoulder", "description": "You broke your shoulder", "advice": "go visit your GP", "bodyPart": "shoulder", "answers": [1] }@
+{ "name": "A broken nose", "description": "You broke your nose", "advice": "go visit your GP", "bodyPart": "nose", "answers": [1] }@
+{ "name": "A broken neck", "description": "You broke your neck", "advice": "go visit your GP", "bodyPart": "neck", "answers": [1] }@
+{ "name": "Corona virus", "description": "You may have been affected with COVID-19", "advice": "get a test and isolate", "bodyPart": "head", "answers": [1] }@
+{ "name": "Hay fever", "description": "There are pollens in the air and you might have hay fever", "advice": "go visit your GP", "bodyPart": "eye", "answers": [1] }@
+{ "name": "An eardrum inflammation", "description": "You may have been affected with too much noise", advice: "go visit your GP for examination", "bodyPart": "ear", "answers": [1] }
 

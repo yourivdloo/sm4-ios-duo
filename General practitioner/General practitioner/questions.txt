@@ -1,7 +1,7 @@
 { "question": "Does your knee feel broken?", "bodyPart": "knee" }@
 { "question": "Can you still move your knee without too much pain?", "bodyPart": "knee" }@
-{ "question": "Can you still feel your lower leg?", "bodyPart": "lowerLeg" }@
-{ "question": "Can you still feel your upper leg?", "bodyPart": "upperLeg" }@
+{ "question": "Can you still feel your lower leg?", "bodyPart": "lower leg" }@
+{ "question": "Can you still feel your upper leg?", "bodyPart": "upper leg" }@
 { "question": "Can you still feel your foot?", "bodyPart": "foot" }@
 { "question": "Can you still move your foot without too much pain?", "bodyPart": "foot" }@
 { "question": "Do you experience stomach cramps?", "bodyPart": "belly" }@

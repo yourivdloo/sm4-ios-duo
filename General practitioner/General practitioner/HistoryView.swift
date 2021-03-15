@@ -23,12 +23,12 @@ struct HistoryView: View {
     
     @State private var showingDetailScreen = false
     
-    //    @State private var selectedCase = Case(name: "Placeholder", description: "Lorem ipsum dolor sir amet", advice: "Lorem ipsum dolor sir amet", answers: [])
+    //    @State private var selectedCase = Case(name: "Placeholder", description: "Lorem ipsum dolor sir amet", advice: "Lorem ipsum dolor sir amet", bodyPart.head, answers: [])
     
     var body: some View {
         NavigationView{
             VStack{
-                Text("When you click the save button on a case you have received, you can find it here.").foregroundColor(.secondary)
+                Text("If you clicked the save button on a case you have received, you can find it here.").foregroundColor(.secondary)
                 List {
                     ForEach(savedCases, id: \.self) { savedCase in
                         Button(action: {  self.showingDetailScreen.toggle() }, label: {
@@ -64,7 +64,7 @@ struct HistoryView: View {
     
     //
     //    func goToDetail(savedCase : SavedCase){
-    //        self.selectedCase = Case(name: savedCase.name ?? "Unknown case", description: "Placeholder", advice: savedCase.advice ?? "Unknown advice", answers: [])
+    //        self.selectedCase = Case(name: savedCase.name ?? "Unknown case", description: "Placeholder", advice: savedCase.advice ?? "Unknown advice", bodyPart: BodyPart(rawValue: savedCase.bodyPart ?? "head") ?? BodyPart.head, answers: [])
     //        self.showingDetailScreen.toggle()
     //    }
 }

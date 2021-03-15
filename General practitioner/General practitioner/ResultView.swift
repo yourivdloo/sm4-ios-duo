@@ -22,35 +22,50 @@ struct ResultView: View {
         GeometryReader { geo in
             NavigationView{
                 VStack{
-                    Image(String(describing: match.bodyPart))
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: geo.size.width)
+                        Image(String(describing: match.bodyPart))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: geo.size.width)
                     
-                    Text("We think you might have \(match.name.capitalized.lowercased())")
-                    Text(match.advice)
+                    Label("We want to make clear that you should not rely heavily on our advice, if you have serious complaints it is always recommended to check in with a professional.", systemImage: "exclamationmark.triangle")
+                        .foregroundColor(.orange)
+                        .padding()
+                        .background(Color.init(red: 250 / 255, green: 250 / 255, blue: 245 / 255))
+                        .cornerRadius(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.orange, lineWidth: 2)
+                        )
+                        .padding()
                     
-                    Button(action: {isSaved ? self.showingDeleteAlert.toggle() : saveCase()}, label: {
-                        Group{
-                        Text(isSaved ? "Delete from My history" : "Add to My history")
-                        Image(systemName: "clock.arrow.circlepath")
+                    List{
+                        Section(header: Text("Diagnosis")){
+                        Text("We think you might have \(match.name.capitalized.lowercased())")
+                        Text("We advise you to \(match.advice)")
                         }
-                    })
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(isSaved ? Color.red : Color.blue)
-                    .cornerRadius(15)
+                    }
+                    
+                        Button(action: {isSaved ? self.showingDeleteAlert.toggle() : saveCase()}, label: {
+                            Group{
+                                Text(isSaved ? "Delete from My history" : "Add to My history")
+                                Image(systemName: "clock.arrow.circlepath")
+                            }
+                        })
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(isSaved ? Color.red : Color.blue)
+                        .cornerRadius(15)
                     
                     Text(isSaved ? "Saved on: \(dateToString(date: self.timeSaved ?? Date()))" : "This case is currently not saved").foregroundColor(.secondary)
                     
                     Spacer()
                 }
                 .alert(isPresented: $showingDeleteAlert) {
-                            Alert(title: Text("Delete case"), message: Text("Are you sure?"), primaryButton: .destructive(Text("Delete")) {
-                                    self.deleteCase()
-                                }, secondaryButton: .cancel()
-                            )
-                        }
+                    Alert(title: Text("Delete case"), message: Text("Are you sure?"), primaryButton: .destructive(Text("Delete")) {
+                        self.deleteCase()
+                    }, secondaryButton: .cancel()
+                    )
+                }
                 .navigationBarTitle(match.name)
             }
         }
