@@ -25,10 +25,11 @@ struct BodyView : View {
         GeometryReader { geo in
             NavigationView{
                 ZStack{
+                    Image("whitebg")
+                        .resizable()
+                        .scaledToFill()
+                        .ignoresSafeArea()
                     VStack{
-                        //            Text("Where do you ache?")
-                        //                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        
                         Image("body")
                             .resizable()
                             .padding([.horizontal], -80)
@@ -58,7 +59,7 @@ struct BodyView : View {
                             .offset(x: geo.size.width * -0.2, y: geo.size.height * 0.2)
                         
                         Btn(bodyPart: BodyPart.upperLeg, size: size)
-                            .offset(x: geo.size.width * -0.13, y: geo.size.height * 0.1)
+                            .offset(x: geo.size.width * 0.07, y: geo.size.height * 0.11)
                         
                         Btn(bodyPart: BodyPart.belly, size: size)
                             .offset(x: geo.size.width * -0.01, y: geo.size.height * -0.02)
@@ -67,10 +68,10 @@ struct BodyView : View {
                             .offset(x: geo.size.width * -0.07, y: geo.size.height * -0.15)
                         
                         Btn(bodyPart: BodyPart.lowerLeg, size: size)
-                            .offset(x: geo.size.width * 0.08, y: geo.size.height * 0.2)
+                            .offset(x: geo.size.width * 0.085, y: geo.size.height * 0.25)
                         
                         Btn(bodyPart: BodyPart.foot, size: size)
-                            .offset(x: geo.size.width * 0.11, y: geo.size.height * 0.35)
+                            .offset(x: geo.size.width * -0.34, y: geo.size.height * 0.33)
                     }
                     
                     NavigationLink(destination: QuestionView(bodyPart: self.bodyPart, caseData: CaseData(bodyPart: self.bodyPart)),

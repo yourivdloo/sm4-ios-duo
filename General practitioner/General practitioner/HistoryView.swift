@@ -24,8 +24,6 @@ struct HistoryView: View {
     
     @State private var showingDetailScreen = false
     
-    //    @State private var selectedCase = Case(name: "Placeholder", description: "Lorem ipsum dolor sir amet", advice: "Lorem ipsum dolor sir amet", bodyPart.head, answers: [])
-    
     var body: some View {
         NavigationView{
             VStack{
@@ -36,22 +34,10 @@ struct HistoryView: View {
                             VStack(alignment: .leading) {
                                 Text(savedCase.name ?? "Unknown Case")
                                     .font(.headline)
-                                Text("Saved on: \(dateToString(date: savedCase.timeSaved ?? Date()))" ?? "Unknown time")
+                                Text("Saved on: \(dateToString(date: savedCase.timeSaved ?? Date()))")
                                     .foregroundColor(.secondary)
                             }
                         }
-                        
-                        //                        Button(action: {  self.showingDetailScreen.toggle() }, label: {
-                        //                                VStack(alignment: .leading) {
-                        //                                    Text(savedCase.name ?? "Unknown Case")
-                        //                                        .font(.headline)
-                        //                                    Text("Saved on: \(dateToString(date: savedCase.timeSaved ?? Date()))" ?? "Unknown time")
-                        //                                        .foregroundColor(.secondary)
-                        //                                }
-                        //                                .sheet(isPresented: $showingDetailScreen) {
-                        //                                    ResultView(match: Case(name: savedCase.name ?? "Unknown case", description: "Placeholder", advice: savedCase.advice ?? "Unknown advice",
-                        //                                                           bodyPart: BodyPart(rawValue: savedCase.bodyPart ?? "head") ?? BodyPart.head, answers: []), savedMatch: savedCase, timeSaved: savedCase.timeSaved, isSaved: true)
-                        //                                }})
                     }.onDelete(perform: deleteCase)
                 }
             }.navigationBarTitle("History")
@@ -71,12 +57,6 @@ struct HistoryView: View {
         // save the context
         try? moc.save()
     }
-    
-    //
-    //    func goToDetail(savedCase : SavedCase){
-    //        self.selectedCase = Case(name: savedCase.name ?? "Unknown case", description: "Placeholder", advice: savedCase.advice ?? "Unknown advice", bodyPart: BodyPart(rawValue: savedCase.bodyPart ?? "head") ?? BodyPart.head, answers: [])
-    //        self.showingDetailScreen.toggle()
-    //    }
 }
 
 struct HistoryView_Previews: PreviewProvider {
