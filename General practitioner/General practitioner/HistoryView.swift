@@ -18,7 +18,8 @@ struct HistoryView: View {
     @Environment(\.managedObjectContext) var moc
     
     @FetchRequest(entity: SavedCase.entity(), sortDescriptors: [
-        NSSortDescriptor(keyPath: \SavedCase.timeSaved, ascending: false)
+        NSSortDescriptor(keyPath: \SavedCase.timeSaved, ascending: false),
+        NSSortDescriptor(keyPath: \SavedCase.name, ascending: true)
     ]) var savedCases: FetchedResults<SavedCase>
     
     @State private var showingDetailScreen = false
@@ -28,20 +29,29 @@ struct HistoryView: View {
     var body: some View {
         NavigationView{
             VStack{
-                Text("If you clicked the save button on a case you have received, you can find it here.").foregroundColor(.secondary)
+                Text("If you clicked the save button on any case you have received, you can find it here.").foregroundColor(.secondary)
                 List {
                     ForEach(savedCases, id: \.self) { savedCase in
-                        Button(action: {  self.showingDetailScreen.toggle() }, label: {
-                                VStack(alignment: .leading) {
-                                    Text(savedCase.name ?? "Unknown Case")
-                                        .font(.headline)
-                                    Text("Saved on: \(dateToString(date: savedCase.timeSaved ?? Date()))" ?? "Unknown time")
-                                        .foregroundColor(.secondary)
-                                }
-                                .sheet(isPresented: $showingDetailScreen) {
-                                    ResultView(match: Case(name: savedCase.name ?? "Unknown case", description: "Placeholder", advice: savedCase.advice ?? "Unknown advice",
-                                                           bodyPart: BodyPart(rawValue: savedCase.bodyPart ?? "head") ?? BodyPart.head, answers: []), savedMatch: savedCase, timeSaved: savedCase.timeSaved, isSaved: true)
-                                }})
+                        NavigationLink(destination: ResultView(match: Case(name: savedCase.name ?? "Unknown case", description: "Placeholder", advice: savedCase.advice ?? "Unknown advice", bodyPart: BodyPart(rawValue: savedCase.bodyPart ?? "head") ?? BodyPart.head, answers: []), savedMatch: savedCase, timeSaved: savedCase.timeSaved, isSaved: true)){
+                            VStack(alignment: .leading) {
+                                Text(savedCase.name ?? "Unknown Case")
+                                    .font(.headline)
+                                Text("Saved on: \(dateToString(date: savedCase.timeSaved ?? Date()))" ?? "Unknown time")
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                        
+                        //                        Button(action: {  self.showingDetailScreen.toggle() }, label: {
+                        //                                VStack(alignment: .leading) {
+                        //                                    Text(savedCase.name ?? "Unknown Case")
+                        //                                        .font(.headline)
+                        //                                    Text("Saved on: \(dateToString(date: savedCase.timeSaved ?? Date()))" ?? "Unknown time")
+                        //                                        .foregroundColor(.secondary)
+                        //                                }
+                        //                                .sheet(isPresented: $showingDetailScreen) {
+                        //                                    ResultView(match: Case(name: savedCase.name ?? "Unknown case", description: "Placeholder", advice: savedCase.advice ?? "Unknown advice",
+                        //                                                           bodyPart: BodyPart(rawValue: savedCase.bodyPart ?? "head") ?? BodyPart.head, answers: []), savedMatch: savedCase, timeSaved: savedCase.timeSaved, isSaved: true)
+                        //                                }})
                     }.onDelete(perform: deleteCase)
                 }
             }.navigationBarTitle("History")

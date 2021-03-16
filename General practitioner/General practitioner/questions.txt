@@ -4,15 +4,23 @@
 { "question": "Can you still feel your upper leg?", "bodyPart": "upper leg" }@
 { "question": "Can you still feel your foot?", "bodyPart": "foot" }@
 { "question": "Can you still move your foot without too much pain?", "bodyPart": "foot" }@
+{ "question": "Do you have pain in your stomach?", "bodyPart": "belly" }@
 { "question": "Do you experience stomach cramps?", "bodyPart": "belly" }@
+{ "question": "Do you throw up often?", "bodyPart": "belly" }@
 { "question": "Do you see a wound?", "bodyPart": "belly" }@
 { "question": "Do you have a high temperature?", "bodyPart": "belly" }@
+{ "question": "Do you feel an urge to pee more than normally?", "bodyPart": "belly"}@
+{ "question": "Is peeing painful for you?", "bodyPart": "belly"}@
 { "question": "Do you feel pressure on your chest?", "bodyPart": "chest" }@
 { "question": "Do you have a high temperature?", "bodyPart": "chest" }@
 { "question": "Can you still feel your arm?", "bodyPart": "arm" }@
 { "question": "Can you still move your arm without too much pain?", "bodyPart": "arm" }@
+{ "question": "Do you see a bruise on your wrist?", "bodyPart": "hand"}@
 { "question": "Can you still feel your hand?", "bodyPart": "hand" }@
 { "question": "Can you still move your hand without too much pain?", "bodyPart": "hand" }@
+{ "question": "Are parts of your hand swollen?", "bodyPart": "hand" }@
+{ "question": "Do parts of your hand look red?", "bodyPart": "hand" }@
+{ "question": "When you put pressure on your hand, is it very painful?", "bodyPart": "hand"}@
 { "question": "Can you still move your shoulder without too much pain?", "bodyPart": "shoulder" }@
 { "question": "Do you have a high temperature?", "bodyPart": "head" }@
 { "question": "Can you still move your nose without too much pain?", "bodyPart": "nose" }@

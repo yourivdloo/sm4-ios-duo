@@ -3,11 +3,17 @@
 { "name": "A broken lower leg", "description": "You broke your lower leg", "advice": "go visit your GP", "bodyPart": "lower leg", "answers": [1] }@
 { "name": "A broken upper leg", "description": "You broke your upper leg", "advice": "go visit your GP", "bodyPart": "upper leg", "answers": [1] }@
 { "name": "A broken foot", "description": "You broke your foot", "advice": "go visit your GP", "bodyPart": "foot", "answers": [1] }@
-{ "name": "Stomach flu", "description": "You have stomach flu", "advice": "stay at home and run its course first", "bodyPart": "belly", "answers": [1, 0, 1] }@
-{ "name": "Constipation", "description": "You are suffering of constipation", "advice": "sit it out, or you can get a laxative from your local pharmacy", "bodyPart": "belly", "answers": [1, 0, 0] }@
+{ "name": "Stomach flu", "description": "You have stomach flu", "advice": "stay at home and run its course first", "bodyPart": "belly", "answers": [1, 1, 1, 0, 1, 0, 0] }@
+{ "name": "Constipation", "description": "You are suffering of constipation", "advice": "sit it out, or you can get a laxative from your local pharmacy", "bodyPart": "belly", "answers": [1, 1, 0, 0, 0, 0, 0] }@
+{ "name": "Cystisis", "description": "You have cystisis", "advice": "go visit your GP for confirmation or denial", "bodyPart": "belly", "answers": [1, 0, 0, 0, 0, 1, 1] }@
+{ "name": "A regular stomach ache", "description": "You have a regular stomach ache", "advice": "wait it out, but visit your GP if it stays on for much longer", "bodyPart": "belly", "answers": [1, 0, 0, 0, 0, 0, 0] }@
 { "name": "A heart attack", "description": "go find help", "advice": "go find direct help, rather than a GP", "bodyPart": "chest", "answers": [1] }@
 { "name": "A broken arm", "description": "You broke your arm", "advice": "go visit your GP", "bodyPart": "arm", "answers": [1] }@
-{ "name": "A broken hand", "description": "You broke your hand", "advice": "go visit your GP", "bodyPart": "hand", "answers": [1] }@
+{ "name": "A broken hand", "description": "You broke your hand", "advice": "go visit your GP, they can check whether it is broken or bruised", "bodyPart": "hand", "answers": [0, 1, 0, 1, 1, 1] }@
+{ "name": "A bruised hand", "description": "You bruised your hand", "advice": "go visit your GP, they can check whether it is broken or bruised", "bodyPart": "hand", "answers": [0, 1, 0, 1, 1, 0] }@
+{ "name": "A broken wrist", "description": "You broke your wrist", "advice": "go visit your GP, they can check whether it is broken or bruised", "bodyPart": "hand", "answers": [1, 0, 0, 0, 0, 1] }@
+{ "name": "A bruised wrist", "description": "You bruised your wrist", "advice": "go visit your GP, they can check whether it is broken or bruised", "bodyPart": "hand", "answers": [1, 0, 0, 0, 0, 0] }@
+{ "name": "Perfectly fine", "description": "Nothing on the hand", "advice": "wait it out, but visit your GP if it stays on for much longer", "bodyPart": "hand", "answers": [0, 1, 1, 0, 0, 0] }@
 { "name": "A broken shoulder", "description": "You broke your shoulder", "advice": "go visit your GP", "bodyPart": "shoulder", "answers": [1] }@
 { "name": "A broken nose", "description": "You broke your nose", "advice": "go visit your GP", "bodyPart": "nose", "answers": [1] }@
 { "name": "A broken neck", "description": "You broke your neck", "advice": "go visit your GP", "bodyPart": "neck", "answers": [1] }@

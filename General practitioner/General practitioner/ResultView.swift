@@ -20,8 +20,9 @@ struct ResultView: View {
     
     var body: some View {
         GeometryReader { geo in
-            NavigationView{
                 VStack{
+                    if(isSaved){ EmptyView() } else { Text(match.name).font(.largeTitle).fontWeight(.bold).padding(.top)}
+                    
                         Image(String(describing: match.bodyPart))
                             .resizable()
                             .scaledToFill()
@@ -65,9 +66,7 @@ struct ResultView: View {
                         self.deleteCase()
                     }, secondaryButton: .cancel()
                     )
-                }
-                .navigationBarTitle(match.name)
-            }
+                }.navigationBarTitle(Text(match.name ?? "Unknown case"), displayMode: isSaved ? .inline : .large)
         }
     }
     
