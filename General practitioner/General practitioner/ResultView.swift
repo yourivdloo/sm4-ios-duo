@@ -28,6 +28,8 @@ struct ResultView: View {
                     .scaledToFill()
                     .frame(width: geo.size.width)
                 
+                GeometryReader{ svGeo in
+                ScrollView{
                 Label("We want to make clear that you should not rely heavily on our advice, if you have serious complaints it is always recommended to check in with a professional.", systemImage: "exclamationmark.triangle")
                     .foregroundColor(.orange)
                     .padding()
@@ -49,6 +51,9 @@ struct ResultView: View {
                             Text("We advise you to \(match.advice)")
                         }
                     }
+                }
+                .frame(width: svGeo.size.width - 5, height: svGeo.size.height, alignment: .center)
+                }
                 }
                 
                 Button(action: {isSaved ? self.showingDeleteAlert.toggle() : saveCase()}, label: {

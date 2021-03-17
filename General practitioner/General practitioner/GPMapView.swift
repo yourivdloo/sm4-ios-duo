@@ -13,6 +13,7 @@ struct GPMapView: View {
     @State private var regionSpan = 0.05
     @State private var isEditing = false
     @State private var GPsNear = [AnnotatedItem]()
+    @State private var noWifiExceptionShowing = false
     
     @State private var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.75773, longitude: -73.985708), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
     
@@ -59,6 +60,9 @@ struct GPMapView: View {
                 }
             }
         }
+        .alert(isPresented: self.$noWifiExceptionShowing){
+            Alert(title: Text("No internet"), message: Text("Can't retrieve local GPs, try to reconnect to the internet"))
+        }
     }
     
     func sliderChanged(){
@@ -102,6 +106,9 @@ struct GPMapView: View {
                                   coordinate: CLLocationCoordinate2D(latitude: $0.placemark.location?.coordinate.latitude ?? 0, longitude: $0.placemark.location?.coordinate.longitude ?? 0)
                     )
                 }
+            }
+            else{
+                self.noWifiExceptionShowing.toggle()
             }
         }
     }

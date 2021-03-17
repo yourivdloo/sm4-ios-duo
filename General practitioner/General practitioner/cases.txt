@@ -19,5 +19,5 @@
 { "name": "A broken neck", "description": "You broke your neck", "advice": "go visit your GP", "bodyPart": "neck", "answers": [1] }@
 { "name": "Corona virus", "description": "You may have been affected with COVID-19", "advice": "get a test and isolate", "bodyPart": "head", "answers": [1] }@
 { "name": "Hay fever", "description": "There are pollens in the air and you might have hay fever", "advice": "go visit your GP", "bodyPart": "eye", "answers": [1] }@
-{ "name": "An eardrum inflammation", "description": "You may have been affected with too much noise", advice: "go visit your GP for examination", "bodyPart": "ear", "answers": [1] }
+{ "name": "An eardrum inflammation", "description": "You may have been affected with too much noise", "advice": "go visit your GP for examination", "bodyPart": "ear", "answers": [1] }
 
